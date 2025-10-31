@@ -1,0 +1,27 @@
+<%- include('partials/header', {titulo: titulo}) %>
+<form action="/reservaciones/nueva" method="POST">
+  <div class="mb-3">
+    
+    <select class="form-select bg-dark text-white" name="flight_id" required>
+      <option value="">-- Selecciona un vuelo --</option>
+      <% flights.forEach(function(f){ %>
+        <option value="<%= f.id %>"><%= f.code %> - <%= f.origin %> → <%= f.destination %> (<%= f.seats_available %> asientos)</option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control bg-dark text-white" id="floatingName" name="passenger_name" placeholder="Nombre del pasajero" required>
+    <label for="floatingName" class="text-white">Nombre del pasajero</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control bg-dark text-white" id="floatingEmail" name="passenger_email" placeholder="Email">
+    <label for="floatingEmail" class="text-white">Email</label>
+  </div>
+
+  <button class="btn btn-success">Reservar</button>
+</form>
+
+
+<%- include('partials/footer') %>

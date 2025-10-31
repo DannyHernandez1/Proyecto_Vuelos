@@ -1,0 +1,22 @@
+{
+  "name": "reservacion_vuelos",
+  "version": "1.0.0",
+  "description": "Proyecto de reservación de vuelos (Node.js + Express + EJS) - almacenamiento en memoria",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "method-override": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "author": "Danny",
+  "license": "ISC"
+}

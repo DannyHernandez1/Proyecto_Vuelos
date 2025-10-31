@@ -1,0 +1,31 @@
+<%- include('partials/header', {titulo: titulo}) %>
+<form action="/vuelos/editar/<%= flight.id %>" method="POST">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control bg-dark text-white" id="floatingCode" name="code" value="<%= flight.code %>" placeholder="Código" required>
+    <label for="floatingCode" class="text-white">Código</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control bg-dark text-white" id="floatingOrigin" name="origin" value="<%= flight.origin %>" placeholder="Origen" required>
+    <label for="floatingOrigin" class="text-white">Origen</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control bg-dark text-white" id="floatingDestination" name="destination" value="<%= flight.destination %>" placeholder="Destino" required>
+    <label for="floatingDestination" class="text-white">Destino</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control bg-dark text-white" id="floatingDeparture" name="departure" value="<%= flight.departure %>" placeholder="YYYY-MM-DD HH:MM" required>
+    <label for="floatingDeparture" class="text-white">Fecha y hora</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="number" class="form-control bg-dark text-white" id="floatingSeats" name="seats_total" value="<%= flight.seats_total %>" placeholder="Asientos totales" required>
+    <label for="floatingSeats" class="text-white">Asientos totales</label>
+  </div>
+
+  <button class="btn btn-success">Actualizar</button>
+</form>
+
+<%- include('partials/footer') %>

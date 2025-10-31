@@ -1,0 +1,35 @@
+<%- include('partials/header', {titulo: titulo}) %>
+<form action="/reservaciones/editar/<%= reservation.id %>" method="POST">
+  <div class="mb-3">
+    <label class="form-label text-white">Vuelo</label>
+    <select class="form-select bg-dark text-white" name="flight_id" required>
+      <% flights.forEach(function(f){ %>
+        <option value="<%= f.id %>" <% if(f.id===reservation.flight_id){ %> selected <% } %> >
+          <%= f.code %> - <%= f.origin %> → <%= f.destination %> (<%= f.seats_available %> asientos)
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control bg-dark text-white" id="floatingName" name="passenger_name" value="<%= reservation.passenger_name %>" placeholder="Nombre del pasajero" required>
+    <label for="floatingName" class="text-white">Nombre del pasajero</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control bg-dark text-white" id="floatingEmail" name="passenger_email" value="<%= reservation.passenger_email %>" placeholder="Email">
+    <label for="floatingEmail" class="text-white">Email</label>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label text-white">Estado</label>
+    <select class="form-select bg-dark text-white" name="status">
+      <option value="confirmada" <% if(reservation.status==='confirmada'){ %> selected <% } %> >Confirmada</option>
+      <option value="cancelada" <% if(reservation.status==='cancelada'){ %> selected <% } %> >Cancelada</option>
+    </select>
+  </div>
+
+  <button class="btn btn-success">Actualizar reserva</button>
+</form>
+
+<%- include('partials/footer') %>
